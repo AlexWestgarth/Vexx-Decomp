@@ -1,0 +1,10 @@
+# See config.example.yml for documentation.
+object_base: orig/GJXP51
+object: sys/main.dol
+hash: 8b48e23a123a4a5509f5ee924bda11bfc780b76e
+symbols: config/GJXP51/symbols.txt
+splits: config/GJXP51/splits.txt
+# Change this to match the linker version.
+# See config.example.yml for a list.
+# mv_comment_version: 11
+#ldscript_template: build/GJXP51/ldscript.lcf

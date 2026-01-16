@@ -29,7 +29,7 @@ from tools.project import (
 # Game versions
 DEFAULT_VERSION = 0
 VERSIONS = [
-    "GAMEID",  # 0
+    "GJXP51",  # 0
 ]
 
 parser = argparse.ArgumentParser()
@@ -173,10 +173,9 @@ config.asflags = [
     f"-I build/{config.version}/include",
     f"--defsym BUILD_VERSION={version_num}",
 ]
-config.ldflags = [
-    "-fp hardware",
-    "-nodefaults",
-]
+
+ldscript_path = Path("config") / config.version / "ldscript.ld"
+config.ldflags = ["-T", str(ldscript_path)]
 if args.debug:
     config.ldflags.append("-g")  # Or -gdwarf-2 for Wii linkers
 if args.map:
@@ -193,25 +192,14 @@ config.scratch_preset_id = None
 # Base flags, common to most GC/Wii games.
 # Generally leave untouched, with overrides added below.
 cflags_base = [
-    "-nodefaults",
-    "-proc gekko",
-    "-align powerpc",
-    "-enum int",
-    "-fp hardware",
-    "-Cpp_exceptions off",
-    # "-W all",
-    "-O4,p",
-    "-inline auto",
-    '-pragma "cats off"',
-    '-pragma "warn_notinlined off"',
-    "-maxerrors 1",
-    "-nosyspath",
-    "-RTTI off",
-    "-fp_contract on",
-    "-str reuse",
-    "-multibyte",  # For Wii compilers, replace with `-enc SJIS`
-    "-i include",
-    f"-i build/{config.version}/include",
+    "-O2",
+    # "-Wall",
+    "-I include",
+    "-I src",
+    "-I src/Speed/GameCube/bWare/GameCube/dolphinsdk/include",
+    "-I include/libc",
+    "-DTARGET_GC",
+    f"-I build/{config.version}/include",
     f"-DBUILD_VERSION={version_num}",
     f"-DVERSION_{config.version}",
 ]
@@ -248,14 +236,14 @@ cflags_rel = [
     "-sdata2 0",
 ]
 
-config.linker_version = "GC/1.3.2"
+config.linker_version = "ProDG/3.9.3"
 
 
 # Helper function for Dolphin libraries
 def DolphinLib(lib_name: str, objects: List[Object]) -> Dict[str, Any]:
     return {
         "lib": lib_name,
-        "mw_version": "GC/1.2.5n",
+        "toolchain_version": "ProDG/3.9.3",
         "cflags": cflags_base,
         "progress_category": "sdk",
         "objects": objects,
@@ -266,7 +254,7 @@ def DolphinLib(lib_name: str, objects: List[Object]) -> Dict[str, Any]:
 def Rel(lib_name: str, objects: List[Object]) -> Dict[str, Any]:
     return {
         "lib": lib_name,
-        "mw_version": "GC/1.3.2",
+        "toolchain_version": "ProDG/3.9.3",
         "cflags": cflags_rel,
         "progress_category": "game",
         "objects": objects,
@@ -288,7 +276,7 @@ config.warn_missing_source = False
 config.libs = [
     {
         "lib": "Runtime.PPCEABI.H",
-        "mw_version": config.linker_version,
+        "toolchain_version": config.linker_version,
         "cflags": cflags_runtime,
         "progress_category": "sdk",  # str | List[str]
         "objects": [
