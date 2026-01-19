@@ -8,3 +8,12 @@ Sections:
 	.sdata      type:data align:32
 	.sbss       type:bss align:4
 	.sdata2     type:rodata align:32
+
+game/main.cpp:
+	.text       start:0x80006250 end:0x8000630C
+
+game/test.cpp:
+	.text       start:0x80033280 end:0x80033298
+
+game/x_SetPrintHandlers.cpp:
+	.text       start:0x8013ABBC end:0x8013ABF8

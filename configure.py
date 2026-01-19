@@ -222,11 +222,11 @@ elif args.warn == "error":
 # Metrowerks library flags
 cflags_runtime = [
     *cflags_base,
-    "-use_lmw_stmw on",
-    "-str reuse,pool,readonly",
-    "-gccinc",
-    "-common off",
-    "-inline auto",
+    #"-use_lmw_stmw on",
+    #"-str reuse,pool,readonly",
+    #"-gccinc",
+    #"-common off",
+    #"-inline auto",
 ]
 
 # REL flags
@@ -234,6 +234,12 @@ cflags_rel = [
     *cflags_base,
     "-sdata 0",
     "-sdata2 0",
+]
+
+cflags_game = [
+    *cflags_base,
+    "-O2",
+    "-G0",
 ]
 
 config.linker_version = "ProDG/3.9.3"
@@ -282,6 +288,17 @@ config.libs = [
         "objects": [
             Object(NonMatching, "Runtime.PPCEABI.H/global_destructor_chain.c"),
             Object(NonMatching, "Runtime.PPCEABI.H/__init_cpp_exceptions.cpp"),
+        ],
+    },
+    {
+        "lib": "game",
+        "toolchain_version": config.linker_version,
+        "cflags": cflags_game,
+        "progress_category": "game",  # str | List[str]
+        "objects": [
+            Object(NonMatching, "game/main.cpp"),
+            Object(NonMatching, "game/test.cpp"),
+            Object(NonMatching, "game/x_SetPrintHandlers.cpp"),
         ],
     },
 ]
