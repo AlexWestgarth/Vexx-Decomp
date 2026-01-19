@@ -296,9 +296,9 @@ config.libs = [
         "cflags": cflags_game,
         "progress_category": "game",  # str | List[str]
         "objects": [
-            Object(NonMatching, "game/main.cpp"),
-            Object(NonMatching, "game/test.cpp"),
             Object(NonMatching, "game/x_SetPrintHandlers.cpp"),
+            Object(NonMatching, "game/VRAM_GetRenderTargetSuggestedHeight.cpp"),
+            Object(NonMatching, "game/SetZLimits.cpp"),
         ],
     },
 ]

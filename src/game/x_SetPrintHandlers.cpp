@@ -8,15 +8,13 @@ extern PrintFunc_t _STDIO_Print;
 extern PrintAtFunc_t _STDIO_PrintAt;
 
 
-void x_SetPrcharHandlers__FPFPCc_vPFPCcii_v(PrintFunc_t arg0, PrintAtFunc_t arg1)
-
-{
-  _STDIO_Print = arg0;
-  _STDIO_PrintAt = arg1;
-  if (!arg0) {
-    _STDIO_Print = DUMMY_Print;
-  }
-  if (!arg1) {
-  _STDIO_PrintAt = DUMMY_PrintAt;
-  }
+void fn_8013ABBC(PrintFunc_t arg0, PrintAtFunc_t arg1) {
+    _STDIO_Print = arg0;
+    _STDIO_PrintAt = arg1;
+    if (!arg0) {
+        _STDIO_Print = DUMMY_Print;
+    }
+    if (!arg1) {
+        _STDIO_PrintAt = DUMMY_PrintAt;
+    }
 }
