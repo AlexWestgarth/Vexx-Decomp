@@ -1,8 +1,8 @@
 Vexx
 [![Discord Badge]][discord]
+=============
 <!-- enable these as they become relevant/usable
 [![Build Status]][actions] [![Code Progress]][progress] [![Data Progress]][progress] 
-=============
 -->
 <!--
 Move to full when ready.
