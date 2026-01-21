@@ -8,7 +8,7 @@ extern PrintFunc_t _STDIO_Print;
 extern PrintAtFunc_t _STDIO_PrintAt;
 
 
-void x_SetPrintHandlers__FPFPCc_vPFPCcii_v(PrintFunc_t arg0, PrintAtFunc_t arg1) {
+void x_SetPrintHandlers(PrintFunc_t arg0, PrintAtFunc_t arg1) {
     _STDIO_Print = arg0;
     _STDIO_PrintAt = arg1;
     if (!arg0) {

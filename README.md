@@ -1,32 +1,36 @@
-Some Game  
-[![Build Status]][actions] [![Code Progress]][progress] [![Data Progress]][progress] [![Discord Badge]][discord]
+Vexx
+[![Discord Badge]][discord]
+<!-- enable these as they become relevant/usable
+[![Build Status]][actions] [![Code Progress]][progress] [![Data Progress]][progress] 
 =============
-
-<!--
-Replace with your repository's URL.
 -->
+<!--
+Move to full when ready.
 [Build Status]: https://github.com/AlexWestgarth/Vexx-Decomp/workflows/build.yml/badge.svg
 [actions]: https://github.com/AlexWestgarth/Vexx-Decomp/workflows/build.yml
-<!--
-decomp.dev progress badges
-See https://decomp.dev/api for an API overview.
 -->
+
+<!--
+decomp.dev progress badges. enable when available
+See https://decomp.dev/api for an API overview.
 [Code Progress]: https://decomp.dev/zeldaret/tww.svg?mode=shield&measure=code&label=Code
 [Data Progress]: https://decomp.dev/zeldaret/tww.svg?mode=shield&measure=data&label=Data
 [progress]: https://decomp.dev/zeldaret/tww
+-->
+
 <!--
 Replace with your Discord server's ID and invite URL.
 -->
 [Discord Badge]: https://img.shields.io/discord/727908905392275526?color=%237289DA&logo=discord&logoColor=%23FFFFFF
 [discord]: https://discord.gg/hKx3FJJgrV
 
-A work-in-progress decompilation of Some Game.
+A work-in-progress decompilation of Vexx.
 
 This repository does **not** contain any game assets or assembly whatsoever. An existing copy of the game is required.
 
 Supported versions:
 
-- `GJXP51`
+- `GJXP51` (EU)
 
 Dependencies
 ============
@@ -86,6 +90,14 @@ Building
   ```sh
   ninja
   ```
+
+Notice
+=======
+
+This build is still in the incredibly early stages. It is heavily reliant on a symbol map of the PS2 version from 3 months before the game's release. It can be found at [debugging.games](https://debugging.games/).
+
+As a result of this early stage, the data has not been properly split into source files. This in turn renders the next section, Diffing, harder to approach.
+
 
 Diffing
 =======
