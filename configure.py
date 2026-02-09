@@ -299,6 +299,7 @@ config.libs = [
             Object(Matching, "game/x_SetPrintHandlers.cpp"),
             Object(NonMatching, "game/VRAM_GetRenderTargetSuggestedHeight.cpp"),
             Object(NonMatching, "game/SetZLimits.cpp"),
+            Object(NonMatching, "game/INPUTQ.cpp")
         ],
     },
 ]

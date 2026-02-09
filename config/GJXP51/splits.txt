@@ -12,6 +12,11 @@ Sections:
 game/VRAM_GetRenderTargetSuggestedHeight.cpp:
 	.text       start:0x8000D37C end:0x8000D384
 
+game/INPUTQ.cpp:
+	.text       start:0x8000D4DC end:0x8000D6E4
+	.data       start:0x8029CAF0 end:0x8029CAF8
+	.bss        start:0x802E6518 end:0x802E7924
+
 game/SetZLimits.cpp:
 	.text       start:0x800ABACC end:0x800ABAD4
 
