@@ -22,3 +22,8 @@ game/SetZLimits.cpp:
 
 game/x_SetPrintHandlers.cpp:
 	.text       start:0x8013ABBC end:0x8013ABF8
+
+game/AudioInstance.cpp:
+	.text       start:0x8013B9A8 end:0x8014358C
+	.data       start:0x802A4A20 end:0x802A678C
+	.bss        start:0x8030B3DC end:0x8030B400
