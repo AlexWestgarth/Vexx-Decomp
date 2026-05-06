@@ -11,6 +11,8 @@ extern int DAT_802e6524;
 extern int DAT_802e6518;
 extern int deVar1;
 typedef int * input_event[6];
+double _s_Initialized = 0;
+
 
 void INPUTQ_EnQueue(input_event *param_1)
 
@@ -71,7 +73,6 @@ void INPUTQ_EnQueue(input_event *param_1)
   return;
 }
 
-double _s_Initialized = 0;
 
 
 void INPUTQ_InitModule(void)

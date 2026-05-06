@@ -241,7 +241,9 @@ cflags_game = [
     "-O2",
     "-G0",
 ]
-
+config.extra_clang_flags = [
+    "-std=gnu++98",
+]
 config.linker_version = "ProDG/3.9.3"
 
 
@@ -296,11 +298,13 @@ config.libs = [
         "cflags": cflags_game,
         "progress_category": "game",  # str | List[str]
         "objects": [
-            Object(Matching, "game/x_SetPrintHandlers.cpp"),
+            Object(NonMatching, "game/x_SetPrintHandlers.cpp"),
             Object(NonMatching, "game/VRAM_GetRenderTargetSuggestedHeight.cpp"),
             Object(NonMatching, "game/SetZLimits.cpp"),
             Object(NonMatching, "game/INPUTQ.cpp"),
-            Object(NonMatching, "game/AudioInstance.cpp")
+            Object(NonMatching, "game/AudioInstance.cpp"),
+            Object(NonMatching, "game/CActorAssociates.cpp"),
+            Object(NonMatching, "game/CDamageInfo.cpp"),
         ],
     },
 ]
